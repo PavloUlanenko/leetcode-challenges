@@ -1,16 +1,12 @@
 function search(nums: number[], target: number): number {
-    let a = 0, b = nums.length - 1;
-    while (a <= b) {
-        const middle = Math.ceil((a + b) / 2);
-        if (nums[middle] === target) {
-            return middle;
-        }
-        if (nums[middle] < target) {
-            a = middle + 1;
-        } else {
-            b = middle - 1;
-        }
-    }
+    const median = Math.floor(nums.length / 2);
 
-    return -1;
+    if (nums[median] === target) return median;
+    if (nums.length === 0 || nums.length === 1) return -1;
+    if (nums[median] > target) {
+        return search(nums.slice(0, median), target);
+    } else {
+        const res = search(nums.slice(median), target);
+        return res === -1 ? res : res + median;
+    }
 };
