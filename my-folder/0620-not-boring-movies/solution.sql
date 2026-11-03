@@ -1,6 +1,5 @@
--- Write your PostgreSQL query statement below
-SELECT
-    *
-FROM Cinema c
-WHERE c.description != 'boring' AND c.id % 2 != 0
-ORDER BY c.rating DESC;
+# Write your MySQL query statement below
+SELECT *
+FROM Cinema
+WHERE description != 'boring' AND id % 2 != 0
+ORDER BY rating DESC;
